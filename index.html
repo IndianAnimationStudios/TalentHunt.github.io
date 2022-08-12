@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artwork Collector</title>
+	<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+	<h1><div class="h1">🧑Talent Hunt🎨</h1>
+
+	<form method="post" autocomplete="off" name="google-sheet"  >
+		<input type="text" name="Name" class="name" autocapitalize="off" placeholder="Your Name" required><br>
+		<input type="text" class="username" name="username" accept="username" autocapitalize="off" required placeholder="Instagram Id"><br>
+		<input type="url" name="link" placeholder="Paste here your Youtube Channel Link" accept="link" required class="url">
+		<label> <div class="label">Drop Your Artwork here</div></label><input type="file" height="10%" width="10%" name="image.jpg" required accept=".jpg , .png" placeholder="Your artwork" class="file"><br>
+		<input type="Submit" class="btn btn-primary" value="Submit"></div><br>
+		<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwKElMTJ1CzlGxtMqZannf3v_3LrVkNgadMgDi8Dg2OI5eVK3pXE5RpwdsMYivqqsx5wQ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Your Data is Submitted"))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+</body>
+</html>
